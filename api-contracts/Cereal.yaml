@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: Cereal API
+  description: Cereal API
+  version: 1.0.0
+servers:
+  - url: 'http//localhost:8080/api/cereals'
+paths:
+  /:
+    post:
+      summary: Register a cereal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterCerealRequest"
+
+      responses:
+        '201':
+          description: Cereal registered
+        '400':
+          description: Bad request
+        '409':
+          description: Cereal already exists
+        '404':
+          description: Farmer not found
+
+components:
+  schemas:
+    RegisterCerealRequest:
+      type: object
+      required:
+        - cereal
+        - farmerEmail
+        - harvestDay
+        - quantity
+      properties:
+        cereal:
+          type: string
+          description: Cereal name
+        farmerEmail:
+          type: string
+          format: email
+          description: Email of the farmer providing the cereal
+        harvestDay:
+          type: string
+          format: date
+          description: Date of the harvest
+        quantity:
+          description: Quantity of Cereal (tons)
+          type: number
+          format: double
+          minimum: 1
+          maximum: 8.5
+
+

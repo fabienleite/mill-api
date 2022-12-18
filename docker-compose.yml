@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  postgresql:
+    container_name: postgresql
+    image: postgres:15.1
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=mill_db
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./src/docker/init.sh:/docker-entrypoint-initdb.d/init.sh

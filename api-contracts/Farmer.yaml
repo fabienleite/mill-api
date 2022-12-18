@@ -1,0 +1,51 @@
+openapi: 3.0.3
+info:
+  title: Farmer API
+  description: Farmer API
+  version: 1.0.0
+servers:
+  - url: 'http//localhost:8080/api/farmers'
+paths:
+  /:
+    post:
+      summary: Register a farmer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateFarmerRequest"
+
+      responses:
+        '201':
+          description: Farmer registered
+        '400':
+          description: Bad request
+        '409':
+          description: Farmer already exists
+
+components:
+  schemas:
+    CreateFarmerRequest:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - email
+        - phoneNumber
+      properties:
+        firstName:
+          type: string
+          description: Farmer first name
+        lastName:
+          type: string
+          description: Farmer last name
+        email:
+          type: string
+          format: email
+          description: Farmer email (unique for each farmer)
+        phoneNumber:
+          description: Farmer phone number
+          format: string
+
+
