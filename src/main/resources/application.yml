@@ -24,3 +24,6 @@ spring:
   flyway:
     enabled: true
     encoding: UTF-8
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

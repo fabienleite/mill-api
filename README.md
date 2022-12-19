@@ -20,6 +20,9 @@ To execute the Rest api you can launch this line:
 ./mvnw springboot:run
 ```
 
+A swagger user interface is available: http://localhost:8080/swagger-ui/index.html
+![img](./docs/swagger-ui.png)
+
 ## Existing Features
 
 ### Farmers
