@@ -1,5 +1,6 @@
 package fr.ippon.mill.cereal.infrastructure.primary;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -14,7 +15,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
-class CerealRessource {
+@Disabled("Cereal API is not implemented")
+class CerealRessourceIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -41,7 +43,7 @@ class CerealRessource {
                         .content("""
                                 {
                                   "cereal": "WHEAT",
-                                  "farmerEmail": "jean.dupont@fermier.fr",
+                                  "farmerId": "a046b054-1eae-451d-afa1-8b3202f1902a",
                                   "harvestDay": "2022-11-21",
                                   "quantity": 7.23
                                 }
